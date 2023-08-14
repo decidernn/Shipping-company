@@ -1,0 +1,18 @@
+﻿<Page x:Class="SudCompany.Menu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudCompany"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="Меню" Height="768" Width="1366" Background="White">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="928" VerticalAlignment="Top" Width="1374" Source="Images/flight.jpg" Margin="-514,0,0,0"/>
+        <Label Content="Выберите действие" HorizontalAlignment="Left" Margin="928,208,0,0" VerticalAlignment="Top" FontSize="38" FontWeight="Bold"/>
+        <Button Name="btnFlight" Content="Управление рейсами" HorizontalAlignment="Left" Margin="928,330,0,0" VerticalAlignment="Top" Width="372" Height="54" Click="btnFlight_Click"/>
+        <Button Name="btnAccounts" Content="Управление аккаунтами клиентов" HorizontalAlignment="Left" Margin="928,418,0,0" VerticalAlignment="Top" Width="372" Height="52" Click="btnAccounts_Click"/>
+        <Button Name="btnShip" Content="Управление суднами" HorizontalAlignment="Left" Margin="928,500,0,0" VerticalAlignment="Top" Width="372" Height="52" Click="btnShip_Click"/>
+    </Grid>
+</Page>

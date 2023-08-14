@@ -1,0 +1,38 @@
+﻿<Page x:Class="SudCompany.EditFlights"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudCompany"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="Редактирование рейсов" Height="768" Width="1366" Background="White">
+
+    <Grid>
+        <Label Content="Редактирование рейса" HorizontalAlignment="Left" Margin="64,52,0,0" VerticalAlignment="Top" FontSize="38"/>
+        <ComboBox Name="comboShip" HorizontalAlignment="Left" Margin="62,236,0,0" VerticalAlignment="Top" Width="254" Height="36" ItemsSource="{Binding}" SelectedValuePath="Код" DisplayMemberPath="Марка" SelectionChanged="comboShip_SelectionChanged"/>
+        <Label Content="Судно" HorizontalAlignment="Left" Margin="62,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <ComboBox x:Name="comboAdmin" HorizontalAlignment="Left" Margin="62,316,0,0" VerticalAlignment="Top" Width="254" Height="36" ItemsSource="{Binding}" SelectedValuePath="Код" DisplayMemberPath="ФамилияАдминистратора" SelectionChanged="comboAdmin_SelectionChanged"/>
+        <Label Content="Администратор" HorizontalAlignment="Left" Margin="62,292,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboClient" HorizontalAlignment="Left" Margin="62,403,0,0" VerticalAlignment="Top" Width="254" Height="36" ItemsSource="{Binding}" SelectedValuePath="Код" DisplayMemberPath="ФамилияКлиента" SelectionChanged="comboClient_SelectionChanged"/>
+        <Label Content="Клиент" HorizontalAlignment="Left" Margin="62,379,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="DatePickerOut" HorizontalAlignment="Left" Margin="408,236,0,0" VerticalAlignment="Top" Height="36" Width="254"/>
+        <Label Content="Дата отправления" HorizontalAlignment="Left" Margin="408,212,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="DatePickerIn" HorizontalAlignment="Left" Margin="408,311,0,0" VerticalAlignment="Top" Height="36" Width="254"/>
+        <Label Content="Дата прибытия" HorizontalAlignment="Left" Margin="408,287,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="txtCityOut" HorizontalAlignment="Left" Margin="734,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <TextBox Name="txtCityIn" HorizontalAlignment="Left" Margin="734,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <Label Content="Город отправления" HorizontalAlignment="Left" Margin="734,212,0,0" VerticalAlignment="Top"/>
+        <Label Content="Город прибытия" HorizontalAlignment="Left" Margin="734,287,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCargo" HorizontalAlignment="Left" Margin="1041,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <TextBox x:Name="txtCapitaneOfShip" HorizontalAlignment="Left" Margin="1041,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <Label Content="Груз" HorizontalAlignment="Left" Margin="1041,217,0,0" VerticalAlignment="Top"/>
+        <Label Content="Капитан судна" HorizontalAlignment="Left" Margin="1041,292,0,0" VerticalAlignment="Top"/>
+        <Button Name="btnAddFlight" Content="Сохранить" HorizontalAlignment="Left" Margin="62,483,0,0" VerticalAlignment="Top" Height="101" Width="1233" Click="btnAddFlight_Click"/>
+        <ComboBox x:Name="comboStatus" HorizontalAlignment="Left" Margin="1042,391,0,0" VerticalAlignment="Top" Width="254" Height="36" ItemsSource="{Binding}" SelectedValuePath="Код" DisplayMemberPath="Название" SelectionChanged="comboStatus_SelectionChanged"/>
+        <Label Name="lblStatus" Content="Статус" HorizontalAlignment="Left" Margin="1042,367,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="comboSet" HorizontalAlignment="Left" Margin="64,142,0,0" VerticalAlignment="Top" Height="36" Width="254" SelectionChanged="comboSet_SelectionChanged"/>
+        <Label Content="Код" HorizontalAlignment="Left" Margin="64,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left" Margin="1255,30,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+    </Grid>
+</Page>

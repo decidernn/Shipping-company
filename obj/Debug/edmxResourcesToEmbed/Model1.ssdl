@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище СудоходнаяКомпанияModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Администратор">
+    <Key>
+      <PropertyRef Name="Код" />
+    </Key>
+    <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФамилияАдминистратора" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ИмяАдминистратора" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ЛогинАдминистратора" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Пароль" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Клиент">
+    <Key>
+      <PropertyRef Name="Код" />
+    </Key>
+    <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФамилияКлиента" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ИмяКлиента" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ОтчествоКлиента" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Паспорт" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="НомерТелефона" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Рейс">
+    <Key>
+      <PropertyRef Name="Код" />
+    </Key>
+    <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодСудна" Type="int" Nullable="false" />
+    <Property Name="КодАдминистратора" Type="int" Nullable="false" />
+    <Property Name="КодКлиента" Type="int" Nullable="false" />
+    <Property Name="КодСтатуса" Type="int" Nullable="false" />
+    <Property Name="ДатаОтправления" Type="date" Nullable="false" />
+    <Property Name="ДатаПрибытия" Type="date" />
+    <Property Name="ГородОтправления" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="ГородПрибытия" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Груз" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="КапитанСудна" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Статус">
+    <Key>
+      <PropertyRef Name="Код" />
+    </Key>
+    <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Судно">
+    <Key>
+      <PropertyRef Name="Код" />
+    </Key>
+    <Property Name="Код" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Марка" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="Грузоподъемность" Type="int" Nullable="false" />
+    <Property Name="ГодВыпуска" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Рейс_Администратор">
+    <End Role="Администратор" Type="Self.Администратор" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Рейс" Type="Self.Рейс" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Администратор">
+        <PropertyRef Name="Код" />
+      </Principal>
+      <Dependent Role="Рейс">
+        <PropertyRef Name="КодАдминистратора" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Рейс_Клиент">
+    <End Role="Клиент" Type="Self.Клиент" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Рейс" Type="Self.Рейс" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиент">
+        <PropertyRef Name="Код" />
+      </Principal>
+      <Dependent Role="Рейс">
+        <PropertyRef Name="КодКлиента" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Рейс_Статус">
+    <End Role="Статус" Type="Self.Статус" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Рейс" Type="Self.Рейс" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Статус">
+        <PropertyRef Name="Код" />
+      </Principal>
+      <Dependent Role="Рейс">
+        <PropertyRef Name="КодСтатуса" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Рейс_Судно">
+    <End Role="Судно" Type="Self.Судно" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Рейс" Type="Self.Рейс" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Судно">
+        <PropertyRef Name="Код" />
+      </Principal>
+      <Dependent Role="Рейс">
+        <PropertyRef Name="КодСудна" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище СудоходнаяКомпанияModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Администратор" EntityType="Self.Администратор" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиент" EntityType="Self.Клиент" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Рейс" EntityType="Self.Рейс" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Статус" EntityType="Self.Статус" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Судно" EntityType="Self.Судно" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Рейс_Администратор" Association="Self.FK_Рейс_Администратор">
+      <End Role="Администратор" EntitySet="Администратор" />
+      <End Role="Рейс" EntitySet="Рейс" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Рейс_Клиент" Association="Self.FK_Рейс_Клиент">
+      <End Role="Клиент" EntitySet="Клиент" />
+      <End Role="Рейс" EntitySet="Рейс" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Рейс_Статус" Association="Self.FK_Рейс_Статус">
+      <End Role="Статус" EntitySet="Статус" />
+      <End Role="Рейс" EntitySet="Рейс" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Рейс_Судно" Association="Self.FK_Рейс_Судно">
+      <End Role="Судно" EntitySet="Судно" />
+      <End Role="Рейс" EntitySet="Рейс" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

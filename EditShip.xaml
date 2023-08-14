@@ -1,0 +1,24 @@
+﻿<Page x:Class="SudCompany.EditShip"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudCompany"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="Редактирование информации о судне" Height="768" Width="1366" Background="White">
+
+    <Grid>
+        <Label Content="Добавление судна" HorizontalAlignment="Left" Margin="64,52,0,0" VerticalAlignment="Top" FontSize="38"/>
+        <TextBox Name="txtMark" HorizontalAlignment="Left" Margin="297,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <TextBox Name="txtMaxx" HorizontalAlignment="Left" Margin="599,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <Label Content="Марка" HorizontalAlignment="Left" Margin="297,229,0,0" VerticalAlignment="Top"/>
+        <Label Content="Грузоподъемность" HorizontalAlignment="Left" Margin="599,229,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtYearOfBurn" HorizontalAlignment="Left" Margin="911,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="254"/>
+        <Label Content="Год выпуска" HorizontalAlignment="Left" Margin="911,229,0,0" VerticalAlignment="Top"/>
+        <Button Name="btnAddFlight" Content="Добавить" HorizontalAlignment="Left" Margin="62,483,0,0" VerticalAlignment="Top" Height="101" Width="1233" Click="btnAddFlight_Click"/>
+        <ComboBox Name="comboSet" HorizontalAlignment="Left" Margin="64,142,0,0" VerticalAlignment="Top" Height="36" Width="254" SelectionChanged="comboSet_SelectionChanged"/>
+        <Label Content="Код" HorizontalAlignment="Left" Margin="64,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left" Margin="1255,30,0,0" VerticalAlignment="Top" Click="btnBack_Click"/>
+    </Grid>
+</Page>

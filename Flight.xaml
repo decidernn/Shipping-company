@@ -1,0 +1,37 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SudCompany"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="SudCompany.Flight"
+      mc:Ignorable="d" 
+      d:DesignHeight="768" d:DesignWidth="1366"
+      Title="Рейсы" Height="768" Width="1366" Background="White">
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="31,29,1043,589"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="698,29,365,589">
+            <Button x:Name="btnReset2" Content="Сброс" Margin="15,107,15,9" Click="btnReset2_Click"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="360,30,703,588">
+            <Button x:Name="btnReset1" Content="Сброс" Margin="15,107,15,9" Click="btnReset1_Click"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="1031,29,32,589">
+            <Button x:Name="btnReset3" Content="Сброс" Margin="15,107,15,9" Click="btnReset3_Click"/>
+        </Border>
+        <Button Content="Добавить" Name="btnAdd" HorizontalAlignment="Left" Margin="62,51,0,0" VerticalAlignment="Top" Width="102" Height="37" Click="btnAdd_Click"/>
+        <Button Content="Удалить" Name="btnDelete" HorizontalAlignment="Left" Margin="188,51,0,0" VerticalAlignment="Top" Width="102" Height="37" Click="btnDelete_Click"/>
+        <Button Content="Изменить" Name="btnChange" HorizontalAlignment="Left" Margin="62,114,0,0" VerticalAlignment="Top" Width="102" Height="37" Click="btnChange_Click"/>
+        <Button Content="Обновить" Name="btnUpdate" HorizontalAlignment="Left" Margin="188,114,0,0" VerticalAlignment="Top" Height="37" Width="102" Click="btnUpdate_Click"/>
+        <TextBox HorizontalAlignment="Left" Name="txtShip" Margin="384,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Height="36" TextChanged="txtShip_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Name="txtCity" Margin="722,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Height="36" TextChanged="txtCity_TextChanged"/>
+        <TextBox HorizontalAlignment="Left" Name="txtStatus" Margin="1056,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254" Height="36" TextChanged="txtStatus_TextChanged"/>
+        <DataGrid Name="FlightGrid" Margin="31,204,32,36" SelectionChanged="FlightGrid_SelectionChanged"/>
+        <Label Content="Действия" HorizontalAlignment="Left" Margin="31,10,0,0" VerticalAlignment="Top" Width="60"/>
+        <Label Content="Поиск по судну" HorizontalAlignment="Left" Margin="360,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Поиск по городу прибытия" HorizontalAlignment="Left" Margin="698,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Поиск по статусу" HorizontalAlignment="Left" Margin="1031,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnBack" Content="Назад" HorizontalAlignment="Left" Margin="1243,3,0,0" VerticalAlignment="Top" Click="btnBack_Click"  Height="24" Width="91"/>
+    </Grid>
+</Page>
